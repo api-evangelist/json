@@ -1,0 +1,118 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "json": "https://www.json.org/terms/",
+    "rfc": "https://www.rfc-editor.org/rfc/",
+    "schema": "https://schema.org/",
+    "dcterms": "http://purl.org/dc/terms/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+
+    "JSONDocument": {
+      "@id": "json:Document",
+      "@type": "@id",
+      "rdfs:comment": "A complete JSON document containing a single JSON value as defined in RFC 8259."
+    },
+    "JSONValue": {
+      "@id": "json:Value",
+      "@type": "@id",
+      "rdfs:comment": "A JSON value, which can be an object, array, string, number, boolean, or null."
+    },
+    "JSONObject": {
+      "@id": "json:Object",
+      "@type": "@id",
+      "rdfs:comment": "An unordered collection of zero or more name/value pairs enclosed in curly braces."
+    },
+    "JSONArray": {
+      "@id": "json:Array",
+      "@type": "@id",
+      "rdfs:comment": "An ordered sequence of zero or more JSON values enclosed in square brackets."
+    },
+    "JSONString": {
+      "@id": "json:String",
+      "@type": "xsd:string",
+      "rdfs:comment": "A sequence of zero or more Unicode characters enclosed in double quotation marks."
+    },
+    "JSONNumber": {
+      "@id": "json:Number",
+      "@type": "xsd:double",
+      "rdfs:comment": "A numeric value in decimal notation, optionally with a fraction and/or exponent."
+    },
+    "JSONBoolean": {
+      "@id": "json:Boolean",
+      "@type": "xsd:boolean",
+      "rdfs:comment": "A literal true or false value."
+    },
+    "JSONNull": {
+      "@id": "json:Null",
+      "rdfs:comment": "The literal null value representing the absence of a value."
+    },
+
+    "name": {
+      "@id": "json:memberName",
+      "@type": "xsd:string",
+      "rdfs:comment": "The name (key) in a JSON name/value pair within an object."
+    },
+    "value": {
+      "@id": "json:memberValue",
+      "rdfs:comment": "The value in a JSON name/value pair within an object."
+    },
+    "members": {
+      "@id": "json:hasMembers",
+      "@container": "@set",
+      "rdfs:comment": "The set of name/value pairs contained in a JSON object."
+    },
+    "elements": {
+      "@id": "json:hasElements",
+      "@container": "@list",
+      "rdfs:comment": "The ordered list of values contained in a JSON array."
+    },
+
+    "mediaType": {
+      "@id": "dcterms:format",
+      "@type": "xsd:string",
+      "rdfs:comment": "The MIME media type for JSON: application/json."
+    },
+    "encoding": {
+      "@id": "json:encoding",
+      "@type": "xsd:string",
+      "rdfs:comment": "The character encoding for JSON text, which must be UTF-8 per RFC 8259."
+    },
+    "specification": {
+      "@id": "dcterms:conformsTo",
+      "@type": "@id",
+      "rdfs:comment": "The specification this JSON usage conforms to."
+    },
+
+    "RFC8259": {
+      "@id": "rfc:rfc8259",
+      "@type": "@id",
+      "rdfs:comment": "The JSON Data Interchange Format - the primary IETF specification for JSON."
+    },
+    "ECMA404": {
+      "@id": "https://ecma-international.org/publications-and-standards/standards/ecma-404/",
+      "@type": "@id",
+      "rdfs:comment": "ECMA-404 The JSON Data Interchange Syntax - the Ecma International standard for JSON."
+    },
+    "RFC6901": {
+      "@id": "rfc:rfc6901",
+      "@type": "@id",
+      "rdfs:comment": "JavaScript Object Notation (JSON) Pointer."
+    },
+    "RFC6902": {
+      "@id": "rfc:rfc6902",
+      "@type": "@id",
+      "rdfs:comment": "JavaScript Object Notation (JSON) Patch."
+    },
+    "RFC7396": {
+      "@id": "rfc:rfc7396",
+      "@type": "@id",
+      "rdfs:comment": "JSON Merge Patch."
+    },
+    "RFC7159": {
+      "@id": "rfc:rfc7159",
+      "@type": "@id",
+      "rdfs:comment": "The JSON Data Interchange Format (superseded by RFC 8259)."
+    }
+  }
+}

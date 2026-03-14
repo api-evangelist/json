@@ -1,0 +1,124 @@
+{
+  "$id": "json-patch.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "JSON Patch and JSON Merge Patch",
+  "description": "Schema describing JSON Patch (RFC 6902) operations for modifying JSON documents, and JSON Merge Patch (RFC 7396) for merging partial updates into JSON documents.",
+  "oneOf": [
+    {
+      "$ref": "#/$defs/jsonPatch"
+    },
+    {
+      "$ref": "#/$defs/jsonMergePatch"
+    }
+  ],
+  "$defs": {
+    "jsonPatch": {
+      "title": "JSON Patch (RFC 6902)",
+      "description": "A JSON Patch document is a JSON document that represents an array of operations to apply to a target JSON document.",
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/operation"
+      },
+      "minItems": 1
+    },
+    "operation": {
+      "type": "object",
+      "description": "A single JSON Patch operation.",
+      "required": [
+        "op",
+        "path"
+      ],
+      "properties": {
+        "op": {
+          "type": "string",
+          "description": "The operation to perform.",
+          "enum": [
+            "add",
+            "remove",
+            "replace",
+            "move",
+            "copy",
+            "test"
+          ]
+        },
+        "path": {
+          "type": "string",
+          "description": "A JSON Pointer (RFC 6901) string identifying the target location within the document.",
+          "examples": [
+            "/foo/bar",
+            "/items/0",
+            "/~0escaped~1path"
+          ]
+        },
+        "value": {
+          "description": "The value to use for add, replace, or test operations."
+        },
+        "from": {
+          "type": "string",
+          "description": "A JSON Pointer string identifying the source location for move or copy operations.",
+          "examples": [
+            "/foo/bar"
+          ]
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "op": {
+                "enum": ["add", "replace", "test"]
+              }
+            }
+          },
+          "then": {
+            "required": ["value"]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "op": {
+                "enum": ["move", "copy"]
+              }
+            }
+          },
+          "then": {
+            "required": ["from"]
+          }
+        }
+      ],
+      "additionalProperties": false
+    },
+    "jsonMergePatch": {
+      "title": "JSON Merge Patch (RFC 7396)",
+      "description": "A JSON Merge Patch document describes changes to a target JSON document using a syntax that closely mirrors the document being modified. Recipients process merge patches by comparing the content with the current target document: members present in the patch replace the corresponding target values, null values remove the corresponding target members, and members not present in the patch remain unchanged.",
+      "oneOf": [
+        {
+          "type": "object",
+          "description": "An object whose members represent changes to apply. A null value removes the member; an object value is applied recursively; any other value replaces the target member.",
+          "additionalProperties": true
+        },
+        {
+          "type": "array",
+          "description": "When the merge patch is not an object, the entire target is replaced."
+        },
+        {
+          "type": "string",
+          "description": "When the merge patch is not an object, the entire target is replaced."
+        },
+        {
+          "type": "number",
+          "description": "When the merge patch is not an object, the entire target is replaced."
+        },
+        {
+          "type": "boolean",
+          "description": "When the merge patch is not an object, the entire target is replaced."
+        },
+        {
+          "type": "null",
+          "description": "A null merge patch replaces the entire target with null."
+        }
+      ]
+    }
+  }
+}

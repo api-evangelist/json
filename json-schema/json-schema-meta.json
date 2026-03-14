@@ -1,0 +1,344 @@
+{
+  "$id": "json-schema-meta.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "JSON Schema Draft 2020-12 Meta-Schema",
+  "description": "Schema describing the structure of a JSON Schema document conforming to Draft 2020-12, the latest stable version of the JSON Schema specification used for validating JSON data.",
+  "type": ["object", "boolean"],
+  "if": {
+    "type": "object"
+  },
+  "then": {
+    "properties": {
+      "$id": {
+        "type": "string",
+        "format": "uri-reference",
+        "description": "Identifies the schema resource with a URI."
+      },
+      "$schema": {
+        "type": "string",
+        "format": "uri",
+        "description": "Declares the JSON Schema dialect this schema conforms to.",
+        "examples": [
+          "https://json-schema.org/draft/2020-12/schema"
+        ]
+      },
+      "$ref": {
+        "type": "string",
+        "format": "uri-reference",
+        "description": "References another schema by URI."
+      },
+      "$defs": {
+        "type": "object",
+        "description": "An object containing schema definitions for reuse within this schema.",
+        "additionalProperties": {
+          "$ref": "#"
+        }
+      },
+      "$anchor": {
+        "type": "string",
+        "pattern": "^[A-Za-z_][-A-Za-z0-9._]*$",
+        "description": "Creates a plain name anchor for referencing within the schema."
+      },
+      "$dynamicRef": {
+        "type": "string",
+        "format": "uri-reference",
+        "description": "A dynamic reference resolved at evaluation time."
+      },
+      "$dynamicAnchor": {
+        "type": "string",
+        "pattern": "^[A-Za-z_][-A-Za-z0-9._]*$",
+        "description": "Creates a dynamic anchor that can be overridden by referencing schemas."
+      },
+      "$vocabulary": {
+        "type": "object",
+        "description": "Declares the vocabularies required and optional for this schema.",
+        "propertyNames": {
+          "type": "string",
+          "format": "uri"
+        },
+        "additionalProperties": {
+          "type": "boolean"
+        }
+      },
+      "$comment": {
+        "type": "string",
+        "description": "A comment for schema maintainers, not used in validation."
+      },
+      "title": {
+        "type": "string",
+        "description": "A short summary of the schema's purpose."
+      },
+      "description": {
+        "type": "string",
+        "description": "A detailed explanation of the schema's purpose."
+      },
+      "default": {
+        "description": "A default value for the instance."
+      },
+      "examples": {
+        "type": "array",
+        "description": "Example values conforming to this schema.",
+        "items": true
+      },
+      "deprecated": {
+        "type": "boolean",
+        "description": "Indicates whether the schema is deprecated.",
+        "default": false
+      },
+      "readOnly": {
+        "type": "boolean",
+        "description": "Indicates the value is managed by the owning authority and should not be modified.",
+        "default": false
+      },
+      "writeOnly": {
+        "type": "boolean",
+        "description": "Indicates the value should never be visible in responses.",
+        "default": false
+      },
+      "type": {
+        "description": "The data type(s) allowed for the instance.",
+        "oneOf": [
+          {
+            "type": "string",
+            "enum": ["array", "boolean", "integer", "null", "number", "object", "string"]
+          },
+          {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": ["array", "boolean", "integer", "null", "number", "object", "string"]
+            },
+            "minItems": 1,
+            "uniqueItems": true
+          }
+        ]
+      },
+      "enum": {
+        "type": "array",
+        "description": "The instance value must be equal to one of the elements in this array.",
+        "items": true,
+        "minItems": 1,
+        "uniqueItems": true
+      },
+      "const": {
+        "description": "The instance value must be equal to this value."
+      },
+      "allOf": {
+        "type": "array",
+        "description": "The instance must be valid against all of the subschemas.",
+        "items": {
+          "$ref": "#"
+        },
+        "minItems": 1
+      },
+      "anyOf": {
+        "type": "array",
+        "description": "The instance must be valid against at least one of the subschemas.",
+        "items": {
+          "$ref": "#"
+        },
+        "minItems": 1
+      },
+      "oneOf": {
+        "type": "array",
+        "description": "The instance must be valid against exactly one of the subschemas.",
+        "items": {
+          "$ref": "#"
+        },
+        "minItems": 1
+      },
+      "not": {
+        "$ref": "#",
+        "description": "The instance must not be valid against this schema."
+      },
+      "if": {
+        "$ref": "#",
+        "description": "The conditional schema to evaluate."
+      },
+      "then": {
+        "$ref": "#",
+        "description": "Applied when 'if' evaluates to true."
+      },
+      "else": {
+        "$ref": "#",
+        "description": "Applied when 'if' evaluates to false."
+      },
+      "properties": {
+        "type": "object",
+        "description": "Validation schemas for object properties by name.",
+        "additionalProperties": {
+          "$ref": "#"
+        }
+      },
+      "patternProperties": {
+        "type": "object",
+        "description": "Validation schemas for properties matching regex patterns.",
+        "additionalProperties": {
+          "$ref": "#"
+        },
+        "propertyNames": {
+          "format": "regex"
+        }
+      },
+      "additionalProperties": {
+        "$ref": "#",
+        "description": "Schema for properties not matched by 'properties' or 'patternProperties'."
+      },
+      "propertyNames": {
+        "$ref": "#",
+        "description": "Schema that all property names must conform to."
+      },
+      "required": {
+        "type": "array",
+        "description": "Properties that must be present in the object.",
+        "items": {
+          "type": "string"
+        },
+        "uniqueItems": true
+      },
+      "dependentRequired": {
+        "type": "object",
+        "description": "Properties required when a given property is present.",
+        "additionalProperties": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        }
+      },
+      "dependentSchemas": {
+        "type": "object",
+        "description": "Schemas applied when a given property is present.",
+        "additionalProperties": {
+          "$ref": "#"
+        }
+      },
+      "minProperties": {
+        "type": "integer",
+        "minimum": 0,
+        "description": "Minimum number of properties allowed.",
+        "default": 0
+      },
+      "maxProperties": {
+        "type": "integer",
+        "minimum": 0,
+        "description": "Maximum number of properties allowed."
+      },
+      "items": {
+        "$ref": "#",
+        "description": "Schema for validating array items."
+      },
+      "prefixItems": {
+        "type": "array",
+        "description": "Schemas for validating array items by position (tuple validation).",
+        "items": {
+          "$ref": "#"
+        }
+      },
+      "contains": {
+        "$ref": "#",
+        "description": "Schema that at least one array item must match."
+      },
+      "minItems": {
+        "type": "integer",
+        "minimum": 0,
+        "description": "Minimum number of items in an array.",
+        "default": 0
+      },
+      "maxItems": {
+        "type": "integer",
+        "minimum": 0,
+        "description": "Maximum number of items in an array."
+      },
+      "minContains": {
+        "type": "integer",
+        "minimum": 0,
+        "description": "Minimum number of items matching 'contains'.",
+        "default": 1
+      },
+      "maxContains": {
+        "type": "integer",
+        "minimum": 0,
+        "description": "Maximum number of items matching 'contains'."
+      },
+      "uniqueItems": {
+        "type": "boolean",
+        "description": "Whether all items in the array must be unique.",
+        "default": false
+      },
+      "minimum": {
+        "type": "number",
+        "description": "Minimum numeric value (inclusive)."
+      },
+      "exclusiveMinimum": {
+        "type": "number",
+        "description": "Minimum numeric value (exclusive)."
+      },
+      "maximum": {
+        "type": "number",
+        "description": "Maximum numeric value (inclusive)."
+      },
+      "exclusiveMaximum": {
+        "type": "number",
+        "description": "Maximum numeric value (exclusive)."
+      },
+      "multipleOf": {
+        "type": "number",
+        "exclusiveMinimum": 0,
+        "description": "The numeric value must be a multiple of this number."
+      },
+      "minLength": {
+        "type": "integer",
+        "minimum": 0,
+        "description": "Minimum string length.",
+        "default": 0
+      },
+      "maxLength": {
+        "type": "integer",
+        "minimum": 0,
+        "description": "Maximum string length."
+      },
+      "pattern": {
+        "type": "string",
+        "format": "regex",
+        "description": "Regex pattern the string must match."
+      },
+      "format": {
+        "type": "string",
+        "description": "Semantic format identifier for string validation.",
+        "examples": [
+          "date-time",
+          "date",
+          "time",
+          "email",
+          "uri",
+          "uuid",
+          "ipv4",
+          "ipv6"
+        ]
+      },
+      "contentMediaType": {
+        "type": "string",
+        "description": "MIME type of the string content."
+      },
+      "contentEncoding": {
+        "type": "string",
+        "description": "Encoding of the string content (e.g., base64)."
+      },
+      "contentSchema": {
+        "$ref": "#",
+        "description": "Schema for the decoded content."
+      },
+      "unevaluatedItems": {
+        "$ref": "#",
+        "description": "Schema for array items not evaluated by other keywords."
+      },
+      "unevaluatedProperties": {
+        "$ref": "#",
+        "description": "Schema for object properties not evaluated by other keywords."
+      }
+    },
+    "additionalProperties": true
+  }
+}

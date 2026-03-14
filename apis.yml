@@ -11,4 +11,22 @@ tags:
 created: '2025'
 modified: '2025'
 apis: []
-common: []
+common:
+- name: JSON Schema Draft 2020-12 Meta-Schema
+  description: JSON Schema defining the structure and keywords of a JSON Schema document
+    conforming to Draft 2020-12, including validation, annotation, and applicator
+    vocabularies as specified by the JSON Schema specification.
+  path: json-schema/json-schema-meta.json
+  type: json-schema
+- name: JSON Patch and JSON Merge Patch
+  description: JSON Schema describing JSON Patch (RFC 6902) operations for precise
+    modification of JSON documents and JSON Merge Patch (RFC 7396) for applying partial
+    updates by merging changes into a target document.
+  path: json-schema/json-patch.json
+  type: json-schema
+- name: JSON-LD Context
+  description: JSON-LD context file mapping JSON data types, structural concepts,
+    and related RFC specifications to linked data vocabularies including Schema.org,
+    Dublin Core, XSD, and RDFS.
+  path: json-ld/json-context.jsonld
+  type: json-ld-context
