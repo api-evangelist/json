@@ -1,0 +1,14 @@
+name: JSON
+description: JSON (JavaScript Object Notation) is a lightweight data interchange format
+  that uses human-readable text to represent structured data as key-value pairs and
+  arrays. It has become the de facto standard for data exchange in web APIs, configuration
+  files, and NoSQL databases due to its simplicity and broad language support.
+url: https://www.json.org/
+tags:
+- Data Format
+- Serialization
+- Web Development
+created: '2025'
+modified: '2025'
+apis: []
+common: []
