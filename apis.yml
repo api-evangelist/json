@@ -1,32 +1,41 @@
+aid: json
 name: JSON
-description: JSON (JavaScript Object Notation) is a lightweight data interchange format
-  that uses human-readable text to represent structured data as key-value pairs and
-  arrays. It has become the de facto standard for data exchange in web APIs, configuration
-  files, and NoSQL databases due to its simplicity and broad language support.
-url: https://www.json.org/
+description: >-
+  JSON (JavaScript Object Notation) is a lightweight data interchange format
+  that uses human-readable text to represent structured data as key-value pairs
+  and arrays. It has become the de facto standard for data exchange in web APIs,
+  configuration files, and NoSQL databases due to its simplicity and broad
+  language support.
+type: Index
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 tags:
-- Data Format
-- Serialization
-- Web Development
-created: '2025'
-modified: '2025'
-apis: []
+  - Data Format
+  - Serialization
+  - Web Development
+url: https://raw.githubusercontent.com/api-evangelist/json/refs/heads/main/apis.yml
+created: '2025-01-01'
+modified: '2026-03-16'
+specificationVersion: '0.19'
+apis:
+  - aid: json:json
+    name: JSON
+    description: >-
+      JSON (JavaScript Object Notation) specification and related resources
+      including JSON Schema and JSON Patch.
+    humanURL: https://www.json.org/
+    tags:
+      - Data Format
+      - Serialization
+    properties:
+      - type: Documentation
+        url: https://www.json.org/
+      - type: Reference
+        url: https://www.rfc-editor.org/rfc/rfc8259
 common:
-- name: JSON Schema Draft 2020-12 Meta-Schema
-  description: JSON Schema defining the structure and keywords of a JSON Schema document
-    conforming to Draft 2020-12, including validation, annotation, and applicator
-    vocabularies as specified by the JSON Schema specification.
-  path: json-schema/json-schema-meta.json
-  type: json-schema
-- name: JSON Patch and JSON Merge Patch
-  description: JSON Schema describing JSON Patch (RFC 6902) operations for precise
-    modification of JSON documents and JSON Merge Patch (RFC 7396) for applying partial
-    updates by merging changes into a target document.
-  path: json-schema/json-patch.json
-  type: json-schema
-- name: JSON-LD Context
-  description: JSON-LD context file mapping JSON data types, structural concepts,
-    and related RFC specifications to linked data vocabularies including Schema.org,
-    Dublin Core, XSD, and RDFS.
-  path: json-ld/json-context.jsonld
-  type: json-ld-context
+  - type: Website
+    url: https://www.json.org/
+  - type: Documentation
+    url: https://www.json.org/
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com
