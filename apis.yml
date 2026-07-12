@@ -41,6 +41,8 @@ apis:
       - type: Specification
         url: https://ecma-international.org/publications-and-standards/standards/ecma-404/
 common:
+  - type: DomainSecurity
+    url: security/json-domain-security.yml
   - type: Website
     url: https://www.json.org/
   - type: Documentation
