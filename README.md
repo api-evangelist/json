@@ -1,4 +1,4 @@
-# JSON (json)
+# JSON
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,49 +66,121 @@
 
 JSON (JavaScript Object Notation) is a lightweight, text-based, language-independent data interchange format that uses human-readable text to represent structured data as key-value pairs and arrays. JSON is standardized by RFC 8259 (December 2017), which obsoletes RFC 7159 (2014) and RFC 4627 (2006). It has become the de facto standard for data exchange in web APIs, configuration files, and NoSQL databases due to its simplicity and broad language support.
 
-**URL:** [Visit APIs.json URL](https://raw.githubusercontent.com/api-evangelist/json/refs/heads/main/apis.yml)
+**Areas:** Data Format · Serialization · Web Development · JSON · RFC 8259
 
-## Scope
+## JSON on APIs.io
 
-- **Type:** Index
-- **Position:** Consuming
-- **Access:** 3rd-Party
+Everything profiled for JSON is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/json/](https://apis.io/providers/json/)** — or go straight to one of the APIs or properties below.
 
-## Tags
+### APIs (1)
 
-- Data Format, Serialization, Web Development, JSON, RFC 8259
+- [JSON](https://apis.io/apis/json/json/) — JSON (JavaScript Object Notation) specification and related resources. Standardized by IETF as RFC 8259 (December 2017, edited by Tim Bray) and by Ecma…
 
-## Timestamps
+### Published properties
 
-- **Created:** 2025-01-01
-- **Modified:** 2026-04-28
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## APIs
+#### JSON Schema (2)
 
-### JSON
+The data models the API reads and writes.
 
-JSON (JavaScript Object Notation) specification and related resources. Standardized by IETF as RFC 8259 (December 2017, edited by Tim Bray) and by Ecma International as ECMA-404. Defines the grammar and syntax for objects, arrays, strings, numbers, booleans, and null values.
+- [JSON Patch and JSON Merge Patch](https://apis.io/schemas/json/json-patch/)
+- [JSON Schema Draft 2020-12 Meta-Schema](https://apis.io/schemas/json/json-schema-meta/)
 
-**Human URL:** [https://www.json.org/](https://www.json.org/)
+#### JSON-LD (1)
 
-#### Tags
+Linked-data contexts for the provider's vocabulary.
 
-- Data Format, Serialization, RFC 8259
+- [Json Context](https://apis.io/jsonld/json/json-context/)
 
-#### Properties
+#### Governance rules (1)
 
-- [Documentation](https://www.json.org/)
-- [Reference](https://www.rfc-editor.org/rfc/rfc8259)
-- [Specification](https://ecma-international.org/publications-and-standards/standards/ecma-404/)
+Spectral rulesets for the provider's contracts.
 
-## Common Properties
+- [JSON — jsonschema rules](https://apis.io/rules/json/json-jsonschema-spectral-rules/)
+
+#### Security (1)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Json Domain Security](https://apis.io/security/json/json-domain-security/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Json Plans Pricing](https://apis.io/plans/json/json-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Json Rate Limits](https://apis.io/rate-limits/json/json-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Json Finops](https://apis.io/finops/json/json-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
 - [Website](https://www.json.org/)
 - [Documentation](https://www.json.org/)
-- [Reference](https://www.rfc-editor.org/rfc/rfc8259)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
+**Kin Score 13.9** — emerging · rubric 0.25.0 · scored 2026-10-23
 
-**Email:** kin@apievangelist.com
+| Facet | Score |
+|---|---|
+| Discoverability | 57.1 |
+| Contract quality | 10.7 |
+| Contract governance | 9.8 |
+| Operational transparency | 7.9 |
+| Developer ergonomics | 11.9 |
+| Access clarity | 7.9 |
+
+**Agent readiness 0.6** — human-only
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | — |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | — |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+| Pagination Ratio | na |
+| Operation Distinctiveness | na |
+
+**Regulatory alignment 10.8** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/json/](https://apis.io/providers/json/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for JSON: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/json/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
